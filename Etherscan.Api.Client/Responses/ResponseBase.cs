@@ -1,4 +1,4 @@
-namespace Etherscan.Api.Client.Models
+namespace Etherscan.Api.Client.Responses
 {
     public class ResponseBase
     {
