@@ -2,41 +2,16 @@ using Xunit;
 
 namespace Etherscan.Api.Client.Tests
 {
-    public class UrlBuilderShould
+    public class AccountClientShould
     {
         [Fact]
-        public void Test1()
+        public void TestFGDF()
         {
-            var url = new UrlBuilder()
-                .WithModule(Module.Account)
-                .Build();
-
-            
-            Assert.Equal("?module=account", url);
-        }
-
-        [Fact]
-        public void Test2()
-        {
-            var url = new UrlBuilder()
-                .WithModule(Module.Account)
-                .WithAction("myAction")
-                .Build();
+            /* var accountClient = new AccountClient();
+              var url = accountClient.GetEtherBalanceOfAddress("");
 
 
-            Assert.Equal("?module=account&action=myAction", url);
-        }
-
-        [Fact]
-        public void Test3()
-        {
-            var url = new UrlBuilder()
-                .WithModule(Module.Account)
-                .WithAction("myAction")
-                .WithAddress("myAddress")
-                .Build();
-
-            Assert.Equal("?module=account&action=myAction&address=myAddress", url);
+              Assert.Equal("?module=account", "url");*/
         }
     }
 }

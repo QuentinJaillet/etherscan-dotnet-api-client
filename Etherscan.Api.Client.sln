@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Etherscan.Api.Client", "Etherscan.Api.Client\Etherscan.Api.Client.csproj", "{A03B06E9-F2B9-4D8F-9678-38361B546B9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Etherscan.Api.Client.Tests", "Etherscan.Api.Client.Tests\Etherscan.Api.Client.Tests.csproj", "{D237D7D4-4FA6-4858-A20F-EE252BF786FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,17 @@ Global
 		{A03B06E9-F2B9-4D8F-9678-38361B546B9D}.Release|x64.Build.0 = Release|Any CPU
 		{A03B06E9-F2B9-4D8F-9678-38361B546B9D}.Release|x86.ActiveCfg = Release|Any CPU
 		{A03B06E9-F2B9-4D8F-9678-38361B546B9D}.Release|x86.Build.0 = Release|Any CPU
+		{D237D7D4-4FA6-4858-A20F-EE252BF786FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D237D7D4-4FA6-4858-A20F-EE252BF786FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D237D7D4-4FA6-4858-A20F-EE252BF786FC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D237D7D4-4FA6-4858-A20F-EE252BF786FC}.Debug|x64.Build.0 = Debug|Any CPU
+		{D237D7D4-4FA6-4858-A20F-EE252BF786FC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D237D7D4-4FA6-4858-A20F-EE252BF786FC}.Debug|x86.Build.0 = Debug|Any CPU
+		{D237D7D4-4FA6-4858-A20F-EE252BF786FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D237D7D4-4FA6-4858-A20F-EE252BF786FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D237D7D4-4FA6-4858-A20F-EE252BF786FC}.Release|x64.ActiveCfg = Release|Any CPU
+		{D237D7D4-4FA6-4858-A20F-EE252BF786FC}.Release|x64.Build.0 = Release|Any CPU
+		{D237D7D4-4FA6-4858-A20F-EE252BF786FC}.Release|x86.ActiveCfg = Release|Any CPU
+		{D237D7D4-4FA6-4858-A20F-EE252BF786FC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

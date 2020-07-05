@@ -5,9 +5,9 @@ namespace Etherscan.Api.Client.Mappers
 {
     internal static class AccountMapper
     {
-        public static EtherAddressBalanceModel ToModel(this int balance, string address)
+        public static EtherAddressBalanceModel ToModel(this string result, string address)
         {
-            return new EtherAddressBalanceModel { Address = address, Balance = balance };
+            return new EtherAddressBalanceModel { Address = address, Balance = result };
         }
 
         public static TransactionModel ToModel(this NormalTransactionResponse response)

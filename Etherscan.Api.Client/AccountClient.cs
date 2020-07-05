@@ -28,7 +28,7 @@ namespace Etherscan.Api.Client
 
             var request = new RestRequest(url, Method.GET);
 
-            var response = Client.Get<ResponseBase<int>>(request);
+            var response = Client.Get<ResponseBase<string>>(request);
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new ResponseException(response.ErrorMessage, response.ErrorException);
 

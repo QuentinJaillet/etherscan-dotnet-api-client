@@ -4,6 +4,6 @@ namespace Etherscan.Api.Client.Responses.Account
     {
         public string account { get; set; }
 
-        public int balance { get; set; }
+        public string balance { get; set; }
     }
 }

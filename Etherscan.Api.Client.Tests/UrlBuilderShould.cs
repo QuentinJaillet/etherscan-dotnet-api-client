@@ -1,6 +1,4 @@
-using System;
 using Xunit;
-using Etherscan.Api.Client;
 
 namespace Etherscan.Api.Client.Tests
 {
@@ -9,9 +7,36 @@ namespace Etherscan.Api.Client.Tests
         [Fact]
         public void Test1()
         {
-            var url = new UrlBuilder().Build();
+            var url = new UrlBuilder()
+                .WithModule(Module.Account)
+                .Build();
 
-           // Etherscan.Api.Client.
+            
+            Assert.Equal("?module=account", url);
+        }
+
+        [Fact]
+        public void Test2()
+        {
+            var url = new UrlBuilder()
+                .WithModule(Module.Account)
+                .WithAction("myAction")
+                .Build();
+
+
+            Assert.Equal("?module=account&action=myAction", url);
+        }
+
+        [Fact]
+        public void Test3()
+        {
+            var url = new UrlBuilder()
+                .WithModule(Module.Account)
+                .WithAction("myAction")
+                .WithAddress("myAddress")
+                .Build();
+
+            Assert.Equal("?module=account&action=myAction&address=myAddress", url);
         }
     }
 }

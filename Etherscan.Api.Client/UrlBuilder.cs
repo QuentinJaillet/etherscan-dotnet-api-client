@@ -58,7 +58,7 @@ namespace Etherscan.Api.Client
 
         public UrlBuilder WithApiKey(string apiKey)
         {
-            _url += string.Format("&apikey={1}", apiKey);
+            _url += string.Format("&apikey={0}", apiKey);
             return this;
         }
 
