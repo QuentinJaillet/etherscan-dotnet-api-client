@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using Etherscan.Api.Client.Enums;
 using Etherscan.Api.Client.Exceptions;
+using Etherscan.Api.Client.Mappers;
 using Etherscan.Api.Client.Models;
 using Etherscan.Api.Client.Responses;
 using Etherscan.Api.Client.Responses.Account;
@@ -17,15 +18,21 @@ namespace Etherscan.Api.Client
             if (string.IsNullOrEmpty(address))
                 throw new ArgumentNullException(nameof(address));
 
-            var uri = string.Format("?module=account&action=balance&address={0}&tag=latest&apikey={1}", address, ApiKey);
+            var url = new UrlBuilder()
+                .WithModule(Module.Account)
+                .WithAction("balance")
+                .WithAddress(address)
+                .WithTag("latest")
+                .WithApiKey(ApiKey)
+                .Build();
 
-            var request = new RestRequest(uri, Method.GET);
+            var request = new RestRequest(url, Method.GET);
 
             var response = Client.Get<ResponseBase<int>>(request);
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new ResponseException(response.ErrorMessage, response.ErrorException);
 
-            return new EtherAddressBalanceModel { Address = address, Balance = response.Data.result };
+            return response.Data.result.ToModel(address);
         }
 
         public List<EtherAddressBalanceModel> GetEtherBalanceForAddresses(List<string> addresses)
@@ -70,34 +77,9 @@ namespace Etherscan.Api.Client
                 throw new ResponseException(response.ErrorMessage, response.ErrorException);
 
             foreach (var res in response.Data.result)
-                result.Add(ConvertToTransactionModel(res));
+                result.Add(res.ToModel());
 
             return result;
-        }
-
-        private static TransactionModel ConvertToTransactionModel(NormalTransactionResponse response)
-        {
-            return new TransactionModel
-            {
-                BlockHash = response.blockHash,
-                BlockNumber = response.blockNumber,
-                Confirmations = response.confirmations,
-                ContractAddress = response.contractAddress,
-                CumulativeGasUsed = response.cumulativeGasUsed,
-                From = response.from,
-                Gas = response.gas,
-                GasPrice = response.gasPrice,
-                GasUsed = response.gasUsed,
-                Hash = response.hash,
-                Input = response.input,
-                IsError = response.isError,
-                Nonce = response.nonce,
-                TimeStamp = response.timeStamp,
-                To = response.to,
-                TransactionIndex = response.transactionIndex,
-                TxReceiptStatus = response.txreceipt_status,
-                Value = response.value
-            };
         }
     }
 }
