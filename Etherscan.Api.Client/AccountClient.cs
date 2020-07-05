@@ -4,6 +4,7 @@ using System.Net;
 using Etherscan.Api.Client.Enums;
 using Etherscan.Api.Client.Exceptions;
 using Etherscan.Api.Client.Models;
+using Etherscan.Api.Client.Responses;
 using Etherscan.Api.Client.Responses.Account;
 using RestSharp;
 
@@ -20,7 +21,7 @@ namespace Etherscan.Api.Client
 
             var request = new RestRequest(uri, Method.GET);
 
-            var response = Client.Get<EtherBalanceResponse>(request);
+            var response = Client.Get<ResponseBase<int>>(request);
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new ResponseException(response.ErrorMessage, response.ErrorException);
 
@@ -38,7 +39,7 @@ namespace Etherscan.Api.Client
 
             var request = new RestRequest(uri, Method.GET);
 
-            var response = Client.Get<EtherBalanceForAddressesResponse>(request);
+            var response = Client.Get<ResponseBase<List<EtherBalanceForAddressResponse>>>(request);
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new ResponseException(response.ErrorMessage, response.ErrorException);
 
@@ -64,7 +65,7 @@ namespace Etherscan.Api.Client
 
             var request = new RestRequest(uri, Method.GET);
 
-            var response = Client.Get<NormalTransactionsResponse>(request);
+            var response = Client.Get<ResponseBase<List<NormalTransactionResponse>>>(request);
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new ResponseException(response.ErrorMessage, response.ErrorException);
 

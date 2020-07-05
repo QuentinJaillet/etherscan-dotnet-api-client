@@ -1,7 +1,6 @@
 using System;
 using System.Net;
 using Etherscan.Api.Client.Exceptions;
-using Etherscan.Api.Client.Models;
 using Etherscan.Api.Client.Models.Transaction;
 using Etherscan.Api.Client.Responses;
 using Etherscan.Api.Client.Responses.Transaction;
@@ -25,7 +24,7 @@ namespace Etherscan.Api.Client
 
             var request = new RestRequest(url, Method.GET);
 
-            var response = Client.Get<ResponseBase2<ContractExecutionStatusResponse>>(request);
+            var response = Client.Get<ResponseBase<ContractExecutionStatusResponse>>(request);
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new ResponseException(response.ErrorMessage, response.ErrorException);
 
@@ -46,7 +45,7 @@ namespace Etherscan.Api.Client
 
             var request = new RestRequest(url, Method.GET);
 
-            var response = Client.Get<ResponseBase2<TransactionReceiptStatusResponse>>(request);
+            var response = Client.Get<ResponseBase<TransactionReceiptStatusResponse>>(request);
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new ResponseException(response.ErrorMessage, response.ErrorException);
 
