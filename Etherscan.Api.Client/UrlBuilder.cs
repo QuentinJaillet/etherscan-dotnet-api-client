@@ -4,10 +4,11 @@ namespace Etherscan.Api.Client
 {
     public enum Module
     {
-        Transaction
+        Transaction,
+        Block
     }
 
-    public class UrlBuilder
+    internal class UrlBuilder
     {
         private string _url;
 
@@ -21,6 +22,15 @@ namespace Etherscan.Api.Client
             if (module == Module.Transaction)
                 _url += "?module=transaction";
 
+            if (module == Module.Block)
+                _url += "?module=block";
+
+            return this;
+        }
+
+        public UrlBuilder WithBlockNo(string blockNo)
+        {
+            _url += string.Format("&blockno={0}", blockNo);
             return this;
         }
 
