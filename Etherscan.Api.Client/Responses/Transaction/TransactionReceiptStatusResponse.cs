@@ -1,6 +1,6 @@
 namespace Etherscan.Api.Client.Responses.Transaction
 {
-    public class TransactionReceiptStatusResponse
+    internal class TransactionReceiptStatusResponse
     {
         public int status { get; set; }
     }

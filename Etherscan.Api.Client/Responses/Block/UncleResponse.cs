@@ -1,6 +1,6 @@
 namespace Etherscan.Api.Client.Responses.Block
 {
-    public class UncleResponse
+    internal class UncleResponse
     {
         public string miner { get; set; }
 

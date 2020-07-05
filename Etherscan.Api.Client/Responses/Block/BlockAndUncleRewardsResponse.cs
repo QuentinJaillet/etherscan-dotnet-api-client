@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Etherscan.Api.Client.Responses.Block
 {
-    public class BlockAndUncleRewardsResponse
+    internal class BlockAndUncleRewardsResponse
     {
         public string blockNumber { get; set; }
 

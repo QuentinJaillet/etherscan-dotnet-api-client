@@ -1,6 +1,6 @@
 namespace Etherscan.Api.Client.Responses
 {
-    public class ResponseBase<T>
+    internal class ResponseBase<T>
     {
         public string status { get; set; }
 

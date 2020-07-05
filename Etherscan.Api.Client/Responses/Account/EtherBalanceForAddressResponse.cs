@@ -1,6 +1,6 @@
 namespace Etherscan.Api.Client.Responses.Account
 {
-    public class EtherBalanceForAddressResponse
+    internal class EtherBalanceForAddressResponse
     {
         public string account { get; set; }
 

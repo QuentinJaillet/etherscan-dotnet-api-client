@@ -4,7 +4,7 @@ using Etherscan.Api.Client.Responses.Block;
 
 namespace Etherscan.Api.Client.Mappers
 {
-    public static class BlockMapper
+    internal static class BlockMapper
     {
         public static BlockAndUncleRewardsModel ToModel(this BlockAndUncleRewardsResponse response)
         {

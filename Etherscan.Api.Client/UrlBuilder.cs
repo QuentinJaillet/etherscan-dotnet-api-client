@@ -2,7 +2,7 @@ using System;
 
 namespace Etherscan.Api.Client
 {
-    public enum Module
+    internal enum Module
     {
         Transaction,
         Block,

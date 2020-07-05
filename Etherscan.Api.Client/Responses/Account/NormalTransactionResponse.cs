@@ -1,6 +1,6 @@
 namespace Etherscan.Api.Client.Responses.Account
 {
-    public class NormalTransactionResponse
+    internal class NormalTransactionResponse
     {
         public string blockNumber { get; set; }
 

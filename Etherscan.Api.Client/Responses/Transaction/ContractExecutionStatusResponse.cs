@@ -1,6 +1,6 @@
 namespace Etherscan.Api.Client.Responses.Transaction
 {
-    public class ContractExecutionStatusResponse
+    internal class ContractExecutionStatusResponse
     {
         public string isError { get; set; }
 

@@ -3,7 +3,7 @@ using Etherscan.Api.Client.Responses.Account;
 
 namespace Etherscan.Api.Client.Mappers
 {
-    public static class AccountMapper
+    internal static class AccountMapper
     {
         public static EtherAddressBalanceModel ToModel(this int balance, string address)
         {
