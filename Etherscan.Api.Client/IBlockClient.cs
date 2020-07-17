@@ -6,7 +6,7 @@ namespace Etherscan.Api.Client
     {
         BlockAndUncleRewardsModel GetBlockAndUncleRewardsbyBlockNo(string blockNo);
 
-        void GetEstimatedBlockCountdownTimebyBlockNo(string blockNo);
+        EstimatedBlockCountdownTimeModel GetEstimatedBlockCountdownTimebyBlockNo(string blockNo);
 
         void GetBlockNumberbyTimestamp();
     }

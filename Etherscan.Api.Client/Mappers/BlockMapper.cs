@@ -18,6 +18,16 @@ namespace Etherscan.Api.Client.Mappers
             return model;
         }
 
+        public static EstimatedBlockCountdownTimeModel ToModel(this EstimatedBlockCountdownTimeResponse response)
+        {
+            var model = new EstimatedBlockCountdownTimeModel();
+            model.CountdownBlock = response.CountdownBlock;
+            model.CurrentBlock = response.CurrentBlock;
+            model.EstimateTimeInSec = response.EstimateTimeInSec;
+            model.RemainingBlock = response.RemainingBlock;
+            return model;
+        }
+
         public static List<UncleModel> ToModels(this List<UncleResponse> uncles)
         {
             var model = new List<UncleModel>();

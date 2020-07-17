@@ -3,6 +3,7 @@ using Etherscan.Api.Client;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApp.Models;
+using WebApp.Models.HomeViewModels;
 
 namespace WebApp.Controllers
 {
@@ -25,16 +26,16 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(EtherAddressViewModel model)
+        public IActionResult Index(EthereumAddressViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
-            var balance = _accountClient.GetEtherBalanceOfAddress(model.Address);
+            ViewBag.Balance = _accountClient.GetEtherBalanceOfAddress(model.Address).Balance;
 
             return View();
         }
-        
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

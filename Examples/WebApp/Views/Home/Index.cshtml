@@ -1,4 +1,4 @@
-﻿@model WebApp.Models.EtherAddressViewModel
+﻿@model WebApp.Models.HomeViewModels.EthereumAddressViewModel
 
 @{
     ViewData["Title"] = "Home Page";
@@ -15,4 +15,6 @@
 
         <button type="submit" class="btn btn-primary btn-block mb-2">Se connecter</button>
     </form>
+
+    <p>Balance : @ViewBag.Balance</p>
 </div>

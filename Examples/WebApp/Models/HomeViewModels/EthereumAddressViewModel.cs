@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace WebApp.Models
+namespace WebApp.Models.HomeViewModels
 {
-    public class EtherAddressViewModel
+    public class EthereumAddressViewModel
     {
         [Required]
         public string Address { get; set; }

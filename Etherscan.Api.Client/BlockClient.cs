@@ -37,9 +37,25 @@ namespace Etherscan.Api.Client
             throw new System.NotImplementedException();
         }
 
-        public void GetEstimatedBlockCountdownTimebyBlockNo(string blockNo)
+        public EstimatedBlockCountdownTimeModel GetEstimatedBlockCountdownTimebyBlockNo(string blockNo)
         {
-            throw new System.NotImplementedException();
+            if (string.IsNullOrEmpty(blockNo))
+                throw new ArgumentNullException(nameof(blockNo));
+
+            var url = new UrlBuilder()
+                .WithModule(Module.Block)
+                .WithAction("getblockcountdown")
+                .WithBlockNo(blockNo)
+                .WithApiKey(ApiKey)
+                .Build();
+
+            var request = new RestRequest(url, Method.GET);
+
+            var response = Client.Get<ResponseBase<EstimatedBlockCountdownTimeResponse>>(request);
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new ResponseException(response.ErrorMessage, response.ErrorException);
+
+            return response.Data.result.ToModel();
         }
     }
 }

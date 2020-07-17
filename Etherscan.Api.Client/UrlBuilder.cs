@@ -1,4 +1,5 @@
 using System;
+using Etherscan.Api.Client.Enums;
 
 namespace Etherscan.Api.Client
 {
@@ -6,7 +7,9 @@ namespace Etherscan.Api.Client
     {
         Transaction,
         Block,
-        Account
+        Account,
+        Stats,
+        GasTracker
     }
 
     internal class UrlBuilder
@@ -29,6 +32,24 @@ namespace Etherscan.Api.Client
             if (module == Module.Block)
                 _url += "?module=block";
 
+            if (module == Module.Stats)
+                _url += "?module=stats";
+
+            if (module == Module.GasTracker)
+                _url += "?module=gastracker";
+
+            return this;
+        }
+
+        public UrlBuilder WithGasPrice(long gasprice)
+        {
+            _url += string.Format("&gasprice={0}", gasprice);
+            return this;
+        }
+
+        public UrlBuilder WithContractAddress(string contractaddress)
+        {
+            _url += string.Format("&contractaddress={0}", contractaddress);
             return this;
         }
 
@@ -41,6 +62,36 @@ namespace Etherscan.Api.Client
         public UrlBuilder WithAddress(string address)
         {
             _url += string.Format("&address={0}", address);
+            return this;
+        }
+
+        public UrlBuilder WithSyncMode(SyncMode syncMode)
+        {
+            _url += string.Format("&syncmode={0}", syncMode == SyncMode.Archive ? "archive" : "default");
+            return this;
+        }
+
+        public UrlBuilder WithSort(Sort sort)
+        {
+            _url += string.Format("&sort={0}", sort == Sort.Asc ? "asc" : "desc");
+            return this;
+        }
+
+        public UrlBuilder WithClientType(ClientType clientType)
+        {
+            _url += string.Format("&clienttype={0}", clientType == ClientType.Geth ? "geth" : "parity");
+            return this;
+        }
+
+        public UrlBuilder WithEndDate(DateTime enddate)
+        {
+            _url += string.Format("&enddate={0}", enddate.ToString("yyyy-MM-dd"));
+            return this;
+        }
+
+        public UrlBuilder WithStartDate(DateTime startdate)
+        {
+            _url += string.Format("&startdate={0}", startdate.ToString("yyyy-MM-dd"));
             return this;
         }
 
