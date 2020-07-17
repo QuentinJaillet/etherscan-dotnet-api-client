@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Etherscan.Api.Client.Enums;
 using Etherscan.Api.Client.Models;
 
-namespace Etherscan.Api.Client
+namespace Etherscan.Api.Client.Interfaces
 {
     public interface IAccountClient
     {

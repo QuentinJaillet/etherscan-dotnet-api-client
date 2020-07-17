@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Etherscan.Api.Client.Enums;
 using Etherscan.Api.Client.Models.Stats;
 
-namespace Etherscan.Api.Client
+namespace Etherscan.Api.Client.Interfaces
 {
     public interface IStatsClient
     {

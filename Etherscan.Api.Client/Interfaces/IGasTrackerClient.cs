@@ -1,6 +1,6 @@
 using Etherscan.Api.Client.Models.GasTracker;
 
-namespace Etherscan.Api.Client
+namespace Etherscan.Api.Client.Interfaces
 {
     public interface IGasTrackerClient
     {

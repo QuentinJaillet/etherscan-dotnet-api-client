@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using Etherscan.Api.Client.Enums;
 using Etherscan.Api.Client.Exceptions;
+using Etherscan.Api.Client.Interfaces;
 using Etherscan.Api.Client.Mappers;
 using Etherscan.Api.Client.Models.Stats;
 using Etherscan.Api.Client.Responses;

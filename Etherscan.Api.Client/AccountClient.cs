@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using Etherscan.Api.Client.Enums;
 using Etherscan.Api.Client.Exceptions;
+using Etherscan.Api.Client.Interfaces;
 using Etherscan.Api.Client.Mappers;
 using Etherscan.Api.Client.Models;
 using Etherscan.Api.Client.Responses;
@@ -11,6 +13,7 @@ using RestSharp;
 
 namespace Etherscan.Api.Client
 {
+    [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
     public class AccountClient : ClientBase, IAccountClient
     {
         public EtherAddressBalanceModel GetEtherBalanceOfAddress(string address)
@@ -80,6 +83,11 @@ namespace Etherscan.Api.Client
                 result.Add(res.ToModel());
 
             return result;
+        }
+
+        private string GetDebuggerDisplay()
+        {
+            return ToString();
         }
     }
 }

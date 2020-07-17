@@ -1,6 +1,6 @@
 using Etherscan.Api.Client.Models.Transaction;
 
-namespace Etherscan.Api.Client
+namespace Etherscan.Api.Client.Interfaces
 {
     public interface ITransactionClient
     {

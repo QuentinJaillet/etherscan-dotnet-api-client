@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using Etherscan.Api.Client.Exceptions;
+using Etherscan.Api.Client.Interfaces;
 using Etherscan.Api.Client.Mappers;
 using Etherscan.Api.Client.Models.Transaction;
 using Etherscan.Api.Client.Responses;

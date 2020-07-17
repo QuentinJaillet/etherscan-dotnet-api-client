@@ -1,4 +1,4 @@
-namespace Etherscan.Api.Client
+namespace Etherscan.Api.Client.Interfaces
 {
     public interface ITokenClient
     {
