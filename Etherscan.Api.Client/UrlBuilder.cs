@@ -1,5 +1,6 @@
 using System;
 using Etherscan.Api.Client.Enums;
+using Etherscan.Api.Client.Interfaces;
 
 namespace Etherscan.Api.Client
 {
@@ -107,9 +108,12 @@ namespace Etherscan.Api.Client
             return this;
         }
 
-        public UrlBuilder WithApiKey(string apiKey)
+        public UrlBuilder AndAddApiKey(IApiKeyClient apiKeyClient)
         {
-            _url += string.Format("&apikey={0}", apiKey);
+            if (apiKeyClient == null)
+                return this;
+
+            _url += string.Format("&apikey={0}", apiKeyClient.ApiKey);
             return this;
         }
 

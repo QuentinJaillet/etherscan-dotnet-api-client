@@ -12,6 +12,14 @@ namespace Etherscan.Api.Client
 {
     public class BlockClient : ClientBase, IBlockClient
     {
+        public BlockClient() : base()
+        {
+        }
+
+        public BlockClient(IApiKeyClient apiKey) : base(apiKey)
+        {
+        }
+
         public BlockAndUncleRewardsModel GetBlockAndUncleRewardsbyBlockNo(string blockNo)
         {
             if (string.IsNullOrEmpty(blockNo))
@@ -21,7 +29,7 @@ namespace Etherscan.Api.Client
                 .WithModule(Module.Block)
                 .WithAction("getblockreward")
                 .WithBlockNo(blockNo)
-                .WithApiKey(ApiKey)
+                .AndAddApiKey(ApiKey)
                 .Build();
 
             var request = new RestRequest(url, Method.GET);
@@ -47,7 +55,7 @@ namespace Etherscan.Api.Client
                 .WithModule(Module.Block)
                 .WithAction("getblockcountdown")
                 .WithBlockNo(blockNo)
-                .WithApiKey(ApiKey)
+                .AndAddApiKey(ApiKey)
                 .Build();
 
             var request = new RestRequest(url, Method.GET);

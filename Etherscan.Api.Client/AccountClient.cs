@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Net;
 using Etherscan.Api.Client.Enums;
 using Etherscan.Api.Client.Exceptions;
@@ -13,9 +12,16 @@ using RestSharp;
 
 namespace Etherscan.Api.Client
 {
-    [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
     public class AccountClient : ClientBase, IAccountClient
     {
+        public AccountClient() : base()
+        {
+        }
+
+        public AccountClient(IApiKeyClient apiKey) : base(apiKey)
+        {
+        }
+
         public EtherAddressBalanceModel GetEtherBalanceOfAddress(string address)
         {
             if (string.IsNullOrEmpty(address))
@@ -26,7 +32,7 @@ namespace Etherscan.Api.Client
                 .WithAction("balance")
                 .WithAddress(address)
                 .WithTag("latest")
-                .WithApiKey(ApiKey)
+                .AndAddApiKey(ApiKey)
                 .Build();
 
             var request = new RestRequest(url, Method.GET);

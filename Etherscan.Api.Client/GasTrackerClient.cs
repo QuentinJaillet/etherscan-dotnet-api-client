@@ -11,13 +11,21 @@ namespace Etherscan.Api.Client
 {
     public class GasTrackerClient : ClientBase, IGasTrackerClient
     {
+        public GasTrackerClient() : base()
+        {
+        }
+
+        public GasTrackerClient(IApiKeyClient apiKey) : base(apiKey)
+        {
+        }
+
         public int GetEstimationOfConfirmationTime(long gasprice)
         {
             var url = new UrlBuilder()
                 .WithModule(Module.GasTracker)
                 .WithAction("gasestimate")
                 .WithGasPrice(gasprice)
-                .WithApiKey(ApiKey)
+                .AndAddApiKey(ApiKey)
                 .Build();
 
             var request = new RestRequest(url, Method.GET);
@@ -34,7 +42,7 @@ namespace Etherscan.Api.Client
             var url = new UrlBuilder()
                 .WithModule(Module.GasTracker)
                 .WithAction("gasoracle")
-                .WithApiKey(ApiKey)
+                .AndAddApiKey(ApiKey)
                 .Build();
 
             var request = new RestRequest(url, Method.GET);

@@ -1,8 +1,9 @@
+using Etherscan.Api.Client.Interfaces;
 using RestSharp;
 
 namespace Etherscan.Api.Client
 {
-    public class ClientBase
+    public abstract class ClientBase
     {
         private readonly string _urlApi = "https://api.etherscan.io/api";
 
@@ -11,13 +12,13 @@ namespace Etherscan.Api.Client
             Client = new RestClient(_urlApi);
         }
 
-        public ClientBase(string apiKey) : base()
+        public ClientBase(IApiKeyClient apiKey) : this()
         {
             ApiKey = apiKey;
         }
 
         protected IRestClient Client { get; }
 
-        protected string ApiKey { get; }
+        protected IApiKeyClient ApiKey { get; }
     }
 }

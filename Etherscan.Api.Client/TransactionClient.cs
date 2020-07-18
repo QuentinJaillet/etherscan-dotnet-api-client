@@ -11,6 +11,14 @@ namespace Etherscan.Api.Client
 {
     public class TransactionClient : ClientBase, ITransactionClient
     {
+        public TransactionClient() : base()
+        {
+        }
+
+        public TransactionClient(IApiKeyClient apiKey) : base(apiKey)
+        {
+        }
+
         public ContractExecutionStatusModel CheckContractExecutionStatus(string txhash)
         {
             if (string.IsNullOrEmpty(txhash))
@@ -20,7 +28,7 @@ namespace Etherscan.Api.Client
                 .WithModule(Module.Transaction)
                 .WithAction("getstatus")
                 .WithTransactionHash(txhash)
-                .WithApiKey(ApiKey)
+                .AndAddApiKey(ApiKey)
                 .Build();
 
             var request = new RestRequest(url, Method.GET);
@@ -41,7 +49,7 @@ namespace Etherscan.Api.Client
                 .WithModule(Module.Transaction)
                 .WithAction("gettxreceiptstatus")
                 .WithTransactionHash(txhash)
-                .WithApiKey(ApiKey)
+                .AndAddApiKey(ApiKey)
                 .Build();
 
             var request = new RestRequest(url, Method.GET);

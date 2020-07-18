@@ -9,6 +9,14 @@ namespace Etherscan.Api.Client
 {
     public class TokenClient : ClientBase, ITokenClient
     {
+        public TokenClient() : base()
+        {
+        }
+
+        public TokenClient(IApiKeyClient apiKey) : base(apiKey)
+        {
+        }
+
         public long GetERC20TokenAccountBalanceForTokenContractAddress(string contractaddress, string address)
         {
             if (string.IsNullOrEmpty(contractaddress))
@@ -23,7 +31,7 @@ namespace Etherscan.Api.Client
                 .WithContractAddress(contractaddress)
                 .WithAddress(address)
                 .WithTag("latest")
-                .WithApiKey(ApiKey)
+                .AndAddApiKey(ApiKey)
                 .Build();
 
             var request = new RestRequest(url, Method.GET);
@@ -44,7 +52,7 @@ namespace Etherscan.Api.Client
                 .WithModule(Module.Stats)
                 .WithAction("tokensupply")
                 .WithContractAddress(contractaddress)
-                .WithApiKey(ApiKey)
+                .AndAddApiKey(ApiKey)
                 .Build();
 
             var request = new RestRequest(url, Method.GET);

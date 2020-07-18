@@ -14,6 +14,14 @@ namespace Etherscan.Api.Client
 {
     public class StatsClient : ClientBase, IStatsClient
     {
+        public StatsClient() : base()
+        {
+        }
+
+        public StatsClient(IApiKeyClient apiKey) : base(apiKey)
+        {
+        }
+
         public List<EthereumNodesSizeModel> GetEthereumNodesSize(DateTime startdate, DateTime enddate, ClientType clientType, SyncMode syncMode, Sort sort)
         {
             if (startdate == null)
@@ -33,7 +41,7 @@ namespace Etherscan.Api.Client
                 .WithClientType(clientType)
                 .WithSyncMode(syncMode)
                 .WithSort(sort)
-                .WithApiKey(ApiKey)
+                .AndAddApiKey(ApiKey)
                 .Build();
 
             var request = new RestRequest(url, Method.GET);
@@ -50,7 +58,7 @@ namespace Etherscan.Api.Client
             var url = new UrlBuilder()
                 .WithModule(Module.Stats)
                 .WithAction("ethprice")
-                .WithApiKey(ApiKey)
+                .AndAddApiKey(ApiKey)
                 .Build();
 
             var request = new RestRequest(url, Method.GET);
@@ -67,7 +75,7 @@ namespace Etherscan.Api.Client
             var url = new UrlBuilder()
                 .WithModule(Module.Stats)
                 .WithAction("ethsupply")
-                .WithApiKey(ApiKey)
+                .AndAddApiKey(ApiKey)
                 .Build();
 
             var request = new RestRequest(url, Method.GET);
