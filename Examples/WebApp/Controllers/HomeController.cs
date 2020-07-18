@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Etherscan.Api.Client;
+using Etherscan.Api.Client.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApp.Models;

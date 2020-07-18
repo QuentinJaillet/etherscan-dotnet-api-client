@@ -1,6 +1,6 @@
 namespace Etherscan.Api.Client.Responses.Block
 {
-    public class EstimatedBlockCountdownTimeResponse
+    internal class EstimatedBlockCountdownTimeResponse
     {
         public string CurrentBlock { get; set; }
         

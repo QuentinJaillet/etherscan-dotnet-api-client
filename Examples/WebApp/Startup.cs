@@ -20,7 +20,7 @@ namespace WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddTransient<IAccountClient, AccountClient>();
+            services.AddEtherscanApiClient();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
