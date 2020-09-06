@@ -12,7 +12,7 @@ namespace Etherscan.Api.Client.Tests
                 .Build();
 
             
-            Assert.Equal("?module=account", url);
+            Assert.Equal("?module=accountt", url);
         }
 
         [Fact]
