@@ -22,13 +22,14 @@ steps:
     restoreSolution: '$(solution)'
 
 - task: DotNetCoreCLI@2
+  displayName: Build
   inputs:
     command: 'build'
-    projects: '**/Etherscan.Api.Client.csproj'
+    projects: 'Etherscan.Api.Client/Etherscan.Api.Client.csproj'
 
 - task: DotNetCoreCLI@2
+  displayName: "Package"
   inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: '45a7390f-e635-4239-bc34-f295927a603e'
+    command: 'pack'
+    packagesToPack: 'Etherscan.Api.Client/Etherscan.Api.Client.csproj'
+    versioningScheme: 'off'
