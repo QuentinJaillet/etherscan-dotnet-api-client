@@ -24,9 +24,9 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: '*/Etherscan.Api.Client/Etherscan.Api.Client.csproj'
+    projects: '**/Etherscan.Api.Client.csproj'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-    projects: '*/Etherscan.Api.Client.Tests/Etherscan.Api.Client.Tests.csproj'
+    projects: '**/Etherscan.Api.Client.Tests.csproj'
