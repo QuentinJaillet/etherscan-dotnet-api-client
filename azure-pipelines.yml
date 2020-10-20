@@ -39,9 +39,8 @@ steps:
     packagesToPack: './Etherscan.Api.Client/Etherscan.Api.Client.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Publish the NuGet Package'
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'internal'
-    publishVstsFeed: '45a7390f-e635-4239-bc34-f295927a603e'
+    publishVstsFeed: 'ef79c5e0-817e-4df7-bc2c-fac47d6c1f92/9b390602-a63f-4dc7-bf0c-8130ff557f06'
