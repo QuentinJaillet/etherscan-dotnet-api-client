@@ -1,6 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageVersion>0.1</PackageVersion>
+    <Authors>Quentin Jaillet</Authors>
   </PropertyGroup>
   <ItemGroup>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
@@ -8,7 +10,7 @@
     </AssemblyAttribute>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="RestSharp" Version="*"/>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="*"/>
+    <PackageReference Include="RestSharp" Version="*" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="*" />
   </ItemGroup>
 </Project>
