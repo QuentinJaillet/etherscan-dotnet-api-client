@@ -32,16 +32,15 @@ steps:
   inputs:
     command: 'test'
 
-- task: DotNetCoreCLI@2
-  displayName: "Package"
+- task: NuGetCommand@2
   inputs:
     command: 'pack'
     packagesToPack: 'Etherscan.Api.Client/Etherscan.Api.Client.csproj'
     versioningScheme: 'off'
 
-- task: DotNetCoreCLI@2
+- task: NuGetCommand@2
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: 'external'
-    publishFeedCredentials: 'Codengine'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '45a7390f-e635-4239-bc34-f295927a603e'
