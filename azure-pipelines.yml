@@ -22,9 +22,23 @@ steps:
     restoreSolution: '$(solution)'
 
 - task: DotNetCoreCLI@2
+  displayName: Build
   inputs:
     command: 'build'
-    projects: '**/Etherscan.Api.Client.csproj'
+    projects: 'Etherscan.Api.Client/Etherscan.Api.Client.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: Test
+  inputs:
+    command: 'test'
+    projects: 'Etherscan.Api.Client.Tests/Etherscan.Api.Client.Tests.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: "Package"
+  inputs:
+    command: 'pack'
+    packagesToPack: 'Etherscan.Api.Client/Etherscan.Api.Client.csproj'
+    versioningScheme: 'off'
 
 - task: DotNetCoreCLI@2
   inputs:
