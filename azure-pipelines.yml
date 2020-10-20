@@ -43,5 +43,5 @@ steps:
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: '45a7390f-e635-4239-bc34-f295927a603e'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'Codengine'
